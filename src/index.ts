@@ -130,7 +130,7 @@ function doGet(region, service, canonical_uri, host) {
     })
 }
 
-doGet(region, service, canonical_uri, host);
+//doGet(region, service, canonical_uri, host);
 
 
 
