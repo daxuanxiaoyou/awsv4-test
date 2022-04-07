@@ -82,4 +82,3 @@ export function getHeader(key, region, service, amzdate, host, path) {
     return  headers;
 }
 
-
