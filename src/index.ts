@@ -25,7 +25,7 @@ amzdate - the date: get by date.toISOString, the amzdate comes from the request 
 host - the server of the service
 path - the request path, must begin with '/' (i.e: /main/0x........)
 */
-export function getSignature(key, region, service, amzdate, host, path) {
+module.exports = function getSignature(key, region, service, amzdate, host, path) {
     const canonical_headers = 'host:' + host + '\n' + 'x-amz-date:' + amzdate + '\n';
     const payload_hash = CryptoJS.SHA256(utf8.encode('')).toString(CryptoJS.enc.Base64);
     const canonical_request = method + '\n' + path + '\n' + '' + '\n' + canonical_headers + '\n' + signedHeaders + '\n' + payload_hash;
@@ -65,7 +65,7 @@ the returned "headers" is the headers of the real request
     )
 )
 */
-export function getHeader(key, region, service, amzdate, host, path) {
+module.exports = function getHeader(key, region, service, amzdate, host, path) {
     //get datestamp 'Y-M-D'
     const time = amzdate.split('T');
     let datestamp = time[0];
